@@ -229,10 +229,28 @@
 		    		$this->randomNoise['dot'][$j]['y'] = mt_rand(0, $this->height);
 	    		}
 
+	    		# Generating some lines
 	    		$this->randomNoise['line'][$i]['x1'] = mt_rand(0, $this->width);
 	    		$this->randomNoise['line'][$i]['y1'] = mt_rand(0, $this->height);
 	    		$this->randomNoise['line'][$i]['x2'] = mt_rand(0, $this->width);
 	    		$this->randomNoise['line'][$i]['y2'] = mt_rand(0, $this->height);
+
+	    		# And some "circles"
+	    		$this->randomNoise['circle'][$i]['x'] = mt_rand(0, $this->width);
+	    		$this->randomNoise['circle'][$i]['y'] = mt_rand(0, $this->height);
+	    		$this->randomNoise['circle'][$i]['width'] = mt_rand(0, $this->width / 4);
+	    		$this->randomNoise['circle'][$i]['height'] = mt_rand(0, $this->height / 4);
+	    		$this->randomNoise['circle'][$i]['start'] = mt_rand(0, 360);
+	    		$this->randomNoise['circle'][$i]['end'] = mt_rand(0, 360);
+
+	    		# We don't need as many ellipses
+	    		if ($i % 2 == 0)
+	    		{
+		    		$this->randomNoise['ellipse'][$i-1]['x'] = mt_rand(0, $this->width);
+		    		$this->randomNoise['ellipse'][$i-1]['y'] = mt_rand(0, $this->height);
+		    		$this->randomNoise['ellipse'][$i-1]['width'] = mt_rand(0, $this->width / 4);
+		    		$this->randomNoise['ellipse'][$i-1]['height'] = mt_rand(0, $this->height / 4);
+	    		}
 	    	}
 	    }
 
@@ -247,6 +265,16 @@
 	    	{
 	            for($i=0; $i < count($this->randomNoise['line']); $i++) 
 	            	imageline($this->image, $this->randomNoise['line'][$i]['x1'], $this->randomNoise['line'][$i]['y1'], $this->randomNoise['line'][$i]['x2'], $this->randomNoise['line'][$i]['y2'], $this->noiseColour);
+	    	}
+	    	if ($this->noiseType == 'ellipses' || $this->noiseType == 'all')
+	    	{
+	    		for($i=0; $i < count($this->randomNoise['ellipse']); $i++) 
+	    			imagefilledellipse($this->image, $this->randomNoise['ellipse'][$i]['x'], $this->randomNoise['ellipse'][$i]['y'], $this->randomNoise['ellipse'][$i]['width'], $this->randomNoise['ellipse'][$i]['height'], $this->noiseColour);
+	    	}
+	    	if ($this->noiseType == 'circles' || $this->noiseType == 'all')
+	    	{
+	    		for($i=0; $i < count($this->randomNoise['circle']); $i++) 
+	    			imagearc($this->image, $this->randomNoise['circle'][$i]['x'], $this->randomNoise['circle'][$i]['y'], $this->randomNoise['circle'][$i]['width'], $this->randomNoise['circle'][$i]['height'], $this->randomNoise['circle'][$i]['start'], $this->randomNoise['circle'][$i]['end'], $this->noiseColour);
 	    	}
 	    }
 	}
