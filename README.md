@@ -21,7 +21,7 @@ Settings
 	'transparentBackground' => false, 						# Using a transparent background [default: false]
 	'noise'                 => false, 						# If it generates some noise in the background [default: false]
 	'difficulty'            => 5, 							# The overall difficulty of the captcha between 1-10 [default: 5]
-	'noiseType'             => 'all', 						# The kind of noise to generate [dots | lines | all] [default: all]
+	'noiseType'             => 'all', 						# The kind of noise to generate [dots | lines | ellipses | circles | all] [default: all]
 	'horizontalMargin'      => '10' 						# The margin on the right and left side [default: 10]
 
 To Do
@@ -54,7 +54,7 @@ Basic usage
             'transparentBackground' => false, 						# Using a transparent background [default: false]
             'noise'                 => false, 						# If it generates some noise in the background [default: false]
             'difficulty'            => 5, 							# The overall difficulty of the captcha between 1-10 [default: 5]
-            'noiseType'             => 'all', 						# The kind of noise to generate [dots | lines | all] [default: all]
+            'noiseType'             => 'all', 						# The kind of noise to generate [dots | lines | ellipses | circles | all] [default: all]
             'horizontalMargin'      => '10' 						# The margin on the right and left side [default: 10]
 
     );
