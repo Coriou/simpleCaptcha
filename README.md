@@ -67,7 +67,9 @@ Examples
 --------------
 
 **Clean**
+
 ![clean simpleCaptcha](http://dev.coriou.net/simpleCaptcha/)
 
 **With random noise**
+
 ![noise simpleCaptcha](http://dev.coriou.net/simpleCaptcha/?noise)
