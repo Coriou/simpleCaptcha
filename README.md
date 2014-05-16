@@ -62,3 +62,12 @@ Basic usage
 	$c = new captcha($settings);
 	$captchaString = $c->generateCaptcha(); 						# The code on the image, unhashed, do whatever you want with it
 	$c->printCaptcha(); 											# Outputs the image
+
+Examples
+--------------
+
+**Clean**
+![clean simpleCaptcha](http://dev.coriou.net/simpleCaptcha/)
+
+**With random noise**
+![noise simpleCaptcha](http://dev.coriou.net/simpleCaptcha/?noise)
